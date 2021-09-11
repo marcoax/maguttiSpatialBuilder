@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/*
+/.idea/php.xml
+*.xml
+/vendor/*
+vendor
+/.idea
+/_ide_helper.php
+.DS_STORE
