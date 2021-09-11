@@ -70,7 +70,7 @@ If you discover any security related issues, please email marco@magutti.com inst
 
 ## Credits
 
--   [marco asperti](https://github.com/magutti)
+-   [marcoax](https://github.com/magutti)
 -   [All Contributors](../../contributors)
 
 ## License
