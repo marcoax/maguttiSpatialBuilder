@@ -1,12 +1,12 @@
 # maguttiSpatialBuilder V1
-Laravel Builders Mysql Spatial Extension
+Laravel Builder Mysql Spatial Extension
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/magutti/magutti-spatial.svg?style=flat-square)](https://packagist.org/packages/magutti/magutti-spatial)
 [![Total Downloads](https://img.shields.io/packagist/dt/magutti/magutti-spatial.svg?style=flat-square)](https://packagist.org/packages/magutti/magutti-spatial)
 
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
+Laravel Builder extensions to calculate distances between two Spatial points with Mysql.
+maguttiSpatialBuilder by default use meter as unit.
 ## Installation
 
 You can install the package via composer:
@@ -16,16 +16,46 @@ composer require magutti/magutti-spatial
 ```
 
 ## Usage
-
+Add in your  Model
 ```php
-// Usage description here
+use Magutti\MaguttiSpatial\Builders\SpatialBuilder;
+
+class Location extends Model
+{
+    .......
+    protected $spatialFields = [
+        'lng',
+        'lat'
+    ];
+   
+    function newEloquentBuilder($query): SpatialBuilder
+    {
+        return new SpatialBuilder($query);
+    }
+    .......
+}
 ```
 
-### Testing
-
-```bash
-composer test
+## Example of usage
+Get all points where the distance from a given position are less than 1Km
+```php
+Location::select(['id','lat','lng'])
+           ->whitDistance([9.5970498, 45.693161])
+           ->whereDistance([9.5970498, 45.693161],1000)
+           ->get()
 ```
+where 9.5970498, 45.693161 is your position and 1000 is the max distance in meters.
+
+
+or if you want uses miles
+```php
+Location::select(['id','lat','lng'])
+           ->whitDistance([9.5970498, 45.693161])
+           ->whereDistance([9.5970498, 45.693161],1,'miles')
+           ->get()
+``` 
+### Available Helpers
+
 
 ### Changelog
 
@@ -48,6 +78,4 @@ If you discover any security related issues, please email marco@magutti.com inst
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## Laravel Package Boilerplate
 
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).

@@ -2,8 +2,8 @@
     "name": "magutti/magutti-spatial",
     "description": "Laravel Builders Mysql Spatial Extension",
     "keywords": [
-        "magutti",
-        "magutti-spatial"
+        "laravel",
+        "mysql-spatial"
     ],
     "homepage": "https://github.com/marcoax/maguttiSpatialBuilder",
     "license": "MIT",
