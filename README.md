@@ -6,7 +6,8 @@ Laravel Builder Mysql Spatial Extension
 
 
 Laravel Builder extensions to calculate distances between two Spatial points with Mysql.
-maguttiSpatialBuilder by default use meter as unit.
+
+MaguttiSpatialBuilder by default use meter as unit.
 ## Installation
 
 You can install the package via composer:
@@ -54,8 +55,6 @@ Location::select(['id','lat','lng'])
            ->whereDistance([9.5970498, 45.693161],10,'mi')
            ->get()
 ``` 
-### Available Helpers
-
 
 ### Changelog
 
