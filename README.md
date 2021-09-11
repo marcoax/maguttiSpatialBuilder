@@ -50,8 +50,8 @@ where 9.5970498, 45.693161 is your position and 1000 is the max distance in mete
 or if you want uses miles
 ```php
 Location::select(['id','lat','lng'])
-           ->whitDistance([9.5970498, 45.693161])
-           ->whereDistance([9.5970498, 45.693161],1,'miles')
+           ->whitDistanceInMiles([9.5970498, 45.693161])
+           ->whereDistance([9.5970498, 45.693161],10,'mi')
            ->get()
 ``` 
 ### Available Helpers
