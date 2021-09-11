@@ -47,7 +47,7 @@ Location::select(['id','lat','lng'])
 where 9.5970498, 45.693161 is your position and 1000 is the max distance in meters.
 
 
-or if you want uses miles
+Use miles as unit
 ```php
 Location::select(['id','lat','lng'])
            ->whitDistanceInMiles([9.5970498, 45.693161])
@@ -55,7 +55,7 @@ Location::select(['id','lat','lng'])
            ->get()
 ``` 
 
-or you want to find the closest point to you  
+Find the closest point to you  
 ```php
 Location::select(['id','lat','lng'])
            ->whitDistanceInMiles([9.5970498, 45.693161])
