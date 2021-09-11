@@ -25,12 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Magutti\\MaguttiSpatial\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Magutti\\MaguttiSpatial\\Tests\\": "tests"
+            "Magutti\\MaguttiSpatial\\": "src/"
         }
     },
     "scripts": {
