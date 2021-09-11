@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Magutti\\MaguttiSpatial\\": "src/"
+            "Magutti\\MaguttiSpatial\\": "src"
         }
     },
     "scripts": {
