@@ -1,10 +1,12 @@
 # maguttiSpatialBuilder V2
 Laravel Builder Mysql Spatial Extension
 
-[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial) [![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
 Laravel Builder extensions to calculate distances between two Spatial points with Mysql.
-
 MaguttiSpatialBuilder by default use meter as unit.
+
+[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial) [![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
+
+
 ## Installation
 
 You can install the package via composer:
