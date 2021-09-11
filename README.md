@@ -1,4 +1,4 @@
-# maguttiSpatialBuilder V1
+# maguttiSpatialBuilder V2
 Laravel Builder Mysql Spatial Extension
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/magutti/magutti-spatial.svg?style=flat-square)](https://packagist.org/packages/magutti/magutti-spatial)
