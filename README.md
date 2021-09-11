@@ -56,6 +56,14 @@ Location::select(['id','lat','lng'])
            ->get()
 ``` 
 
+or you want to find the closest point to you  
+```php
+Location::select(['id','lat','lng'])
+           ->whitDistanceInMiles([9.5970498, 45.693161])
+           ->whereDistance([9.5970498, 45.693161],10,'mi')
+           ->closest()
+``` 
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

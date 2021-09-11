@@ -82,7 +82,7 @@ class SpatialBuilder extends Builder
      * get the first point nearest to you
      * @return \Illuminate\Database\Eloquent\Model|object|SpatialBuilder|null
      */
-    public function nearest()
+    public function closest()
     {
         return $this->first();
     }
