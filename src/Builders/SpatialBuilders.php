@@ -1,5 +1,5 @@
 <?php
-namespace Magutti\MaguttiSpatial\Builder;
+namespace Magutti\MaguttiSpatial\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
 
