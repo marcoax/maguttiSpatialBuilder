@@ -78,7 +78,7 @@ Location::select(['id','lat','lng'])
 ``` 
 
 
-### Helpers
+## Helpers
 The package provide some pre-built methods to calculate distance in Km, Miles or Feet.
 ```php
 
@@ -94,7 +94,7 @@ whereDistanceInFeet(array $point, float $distance)   -> filter point by a given 
 
 
 ``` 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
@@ -102,7 +102,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
 If you discover any security related issues, please email marco@magutti.com instead of using the issue tracker.
 
