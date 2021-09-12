@@ -5,9 +5,10 @@ Laravel Builder Mysql Spatial Extension
 [![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) 
 [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
 
-Laravel Builder extensions to calculate distances between two Spatial points with Mysql.
+Laravel Builder extensions to calculate distances between two Spatial points  using Mysql native function `ST_Distance_Sphere`.
 
-MaguttiSpatialBuilder by default use meter as unit.
+`ST_Distance_Sphere` default unit to find distance is meter.
+
 ## Installation
 
 You can install the package via composer:
@@ -24,7 +25,7 @@ use Magutti\MaguttiSpatial\Builders\SpatialBuilder;
 class Location extends Model
 {
     .......
-    // you can override the default longitude,latitude fields
+    // you can override the default longitude and latitude fields
     protected $spatialFields = [
         'lng',
         'lat'
@@ -78,7 +79,7 @@ Location::select(['id','lat','lng'])
 
 
 ### Helpers
-The package provide some pre-built methods to calculate distance in Km, Miles or Feet
+The package provide some pre-built methods to calculate distance in Km, Miles or Feet.
 ```php
 
 whitDistanceInKm(array $point)    -> return distance in Km;
