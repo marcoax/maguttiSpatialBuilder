@@ -1,12 +1,13 @@
 # maguttiSpatialBuilder V2
 Laravel Builder Mysql Spatial Extension
 
+[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial) 
+[![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) 
+[![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
+
 Laravel Builder extensions to calculate distances between two Spatial points with Mysql.
+
 MaguttiSpatialBuilder by default use meter as unit.
-
-[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial) [![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
-
-
 ## Installation
 
 You can install the package via composer:
@@ -23,6 +24,7 @@ use Magutti\MaguttiSpatial\Builders\SpatialBuilder;
 class Location extends Model
 {
     .......
+    // you can override the default longitude,latitude fields
     protected $spatialFields = [
         'lng',
         'lat'
@@ -39,30 +41,58 @@ class Location extends Model
 ## Example of usage
 Get all points where the distance from a given position are less than 1Km
 ```php
-Location::select(['id','lat','lng'])
-           ->whitDistance([9.5970498, 45.693161])
-           ->whereDistance([9.5970498, 45.693161],1000)
+Location::select(['id','lng','lat'])
+           ->whitDistance([8.9246844, 45.4152695]) // return distance in meters (default)
+           ->whereDistance([8.9246844, 45.4152695],1000)
            ->get()
 ```
-where 9.5970498, 45.693161 is your position and 1000 is the max distance in meters.
+where 8.9246844 (longitude), 45.4152695 (latitude) is your position and 1000 is the max distance in meters.
 
+ 
 
-Use miles as unit
+``` sql
+SELECT `id`,
+       `lng`,
+       `lat`,
+       St_distance_sphere(Point(8.9246844, 45.4152695), Point(lng, lat)) * 1 AS
+       distance
+FROM   `locations`
+WHERE  St_distance_sphere(Point(8.9246844, 45.4152695), Point(lng, lat)) < 1000 
+```
+
+Using Miles
 ```php
 Location::select(['id','lat','lng'])
-           ->whitDistanceInMiles([9.5970498, 45.693161])
-           ->whereDistance([9.5970498, 45.693161],10,'mi')
+           ->whitDistanceInMiles([8.9246844, 45.4152695]) // return distance in Miles
+           ->whereDistance([8.9246844, 45.4152695],10,'mi')
            ->get()
 ``` 
 
-Find the closest point to you  
+Find the closest point to you  in Km 
 ```php
 Location::select(['id','lat','lng'])
-           ->whitDistanceInMiles([9.5970498, 45.693161])
-           ->whereDistance([9.5970498, 45.693161],10,'mi')
+           ->whitDistanceInKm([8.9246844, 45.4152695]) 
+           ->whereDistance([8.9246844, 45.4152695],10,'km')
            ->closest()
 ``` 
 
+
+### Helpers
+The package provide some pre-built methods to calculate distance in Km, Miles or Feet
+```php
+
+whitDistanceInKm(array $point)    -> return distance in Km;
+whitDistanceInMiles(array $point) -> return distance in Miles (mi);
+whitDistanceInFeet(array $point)  -> return distance in Feet (ft);
+
+or
+
+whereDistanceInKm(array $point, float $distance)     -> filter point by a given distance in Km
+whereDistanceInMiles(array $point, float $distance)  -> filter point by a given distance in Miles
+whereDistanceInFeet(array $point, float $distance)   -> filter point by a given distance in Miles
+
+
+``` 
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

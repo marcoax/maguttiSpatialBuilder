@@ -17,7 +17,7 @@ class MaguttiSpatialServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('magutti-spatial.php'),
+                __DIR__.'/../config/magutti-spatial.php' => config_path('magutti-spatial.php'),
             ], 'config');
 
 
@@ -30,6 +30,6 @@ class MaguttiSpatialServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'magutti-spatial');
+        $this->mergeConfigFrom(__DIR__.'/../config/magutti-spatial.php', 'magutti-spatial');
     }
 }
