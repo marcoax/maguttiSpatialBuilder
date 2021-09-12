@@ -86,7 +86,7 @@ whitDistanceInKm(array $point)    -> return distance in Km;
 whitDistanceInMiles(array $point) -> return distance in Miles (mi);
 whitDistanceInFeet(array $point)  -> return distance in Feet (ft);
 
-or
+and for filtering by distance
 
 whereDistanceInKm(array $point, float $distance)     -> filter point by a given distance in Km
 whereDistanceInMiles(array $point, float $distance)  -> filter point by a given distance in Miles
