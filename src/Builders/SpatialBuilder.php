@@ -88,7 +88,7 @@ class SpatialBuilder extends Builder
      */
     public function closest()
     {
-        return $this->first();
+        return $this->orderBy('distance')->first();
     }
 
 
