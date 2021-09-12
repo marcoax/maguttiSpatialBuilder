@@ -39,7 +39,7 @@ class Location extends Model
 }
 ```
 
-## Example of usage
+### Example of usage
 Get all points where the distance from a given position are less than 1Km
 ```php
 Location::select(['id','lng','lat'])
