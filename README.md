@@ -7,7 +7,7 @@ Laravel Builder Mysql Spatial Extension
 
 Laravel Builder extensions to calculate distances between two Spatial points  using Mysql native function `ST_Distance_Sphere`.
 
-`ST_Distance_Sphere` default unit to find distance is meter.
+`ST_Distance_Sphere` default unit to find distance is meters.
 
 ## Installation
 
@@ -47,7 +47,7 @@ Location::select(['id','lng','lat'])
            ->whereDistance([8.9246844, 45.4152695],1000)
            ->get()
 ```
-where 8.9246844 (longitude), 45.4152695 (latitude) is your position and 1000 is the max distance in meters.
+where **8.9246844** (longitude), **45.4152695** (latitude) is your position and **1000** is the max distance in meters.
 
  
 
