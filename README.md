@@ -1,9 +1,10 @@
 # magutti-spatial V2
 Laravel Builder Mysql Spatial Extension
 
-[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial) 
-[![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial) 
+[![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial)
+[![Total Downloads](http://poser.pugx.org/magutti/magutti-spatial/downloads)](https://packagist.org/packages/magutti/magutti-spatial)
 [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
+[![PHP Version Require](http://poser.pugx.org/magutti/magutti-spatial/require/php)](https://packagist.org/packages/magutti/magutti-spatial)
 
 Laravel Builder extensions to calculate distances between two Spatial points  using Mysql native function `ST_Distance_Sphere`.
 
