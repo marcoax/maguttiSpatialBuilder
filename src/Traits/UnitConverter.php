@@ -3,7 +3,7 @@
 namespace Magutti\MaguttiSpatial\Traits;
 
 /**
- *  Some unit  converter helpers
+ *  Some unit converter helpers
  */
 trait UnitConverter
 {

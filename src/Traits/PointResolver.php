@@ -9,14 +9,13 @@ trait PointResolver
 
         if (property_exists($this->model, 'spatialFields')) {
             return $this->getPoints();
-        };
+        }
 
         return $this->formatPoints(config('magutti-spatial.spatial_fields'));
     }
 
     function getPoints()
     {
-
         return $this->formatPoints($this->model->spatialFields);
     }
 

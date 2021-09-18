@@ -21,7 +21,7 @@ class SpatialBuilder extends Builder
      */
     public function whereDistance(array $point, float $distance, string $unit = '', string $operator = '<'): SpatialBuilder
     {
-        echo $this->pointResolver();
+
         return $this->whereRaw("ST_Distance_Sphere( Point($point[0], $point[1]),Point(".$this->pointResolver().")) 
                                     $operator ? ", $this->converter( $distance, $unit));
     }
