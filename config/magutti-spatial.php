@@ -5,5 +5,4 @@
  */
 return [
     'spatial_fields'  => ['lng','lat'],
-
 ];

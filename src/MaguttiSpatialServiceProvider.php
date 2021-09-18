@@ -19,8 +19,6 @@ class MaguttiSpatialServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/magutti-spatial.php' => config_path('magutti-spatial.php'),
             ], 'config');
-
-
         }
     }
 
