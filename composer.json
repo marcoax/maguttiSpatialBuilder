@@ -1,6 +1,6 @@
 {
     "name": "magutti/magutti-spatial",
-    "description": "Laravel Builders Mysql Spatial Extension",
+    "description": "Laravel Builder Mysql Spatial Extension",
     "keywords": [
         "laravel",
         "mysql-spatial"
