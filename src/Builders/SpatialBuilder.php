@@ -3,6 +3,7 @@
 namespace Magutti\MaguttiSpatial\Builders;
 
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Magutti\MaguttiSpatial\Traits\PointResolver;
 use Magutti\MaguttiSpatial\Traits\UnitConverter;
@@ -84,7 +85,7 @@ class SpatialBuilder extends Builder
     /**
      *
      * get the first point nearest to you
-     * @return \Illuminate\Database\Eloquent\Model|object|SpatialBuilder|null
+     * @return Model|object|SpatialBuilder|null
      */
     public function closest()
     {
