@@ -23,8 +23,10 @@ class SpatialBuilder extends Builder
     public function whereDistance(array $point, float $distance, string $unit = '', string $operator = '<'): SpatialBuilder
     {
 
-        return $this->whereRaw("ST_Distance_Sphere( Point($point[0], $point[1]),Point(".$this->pointResolver().")) 
-                                    $operator ? ", $this->converter( $distance, $unit));
+        return $this->whereRaw("ST_Distance_Sphere( 
+                        Point($point[0], $point[1]),
+                        Point(".$this->pointResolver().")) 
+                        $operator ? ", $this->converter( $distance, $unit));
     }
 
     /**
@@ -101,9 +103,9 @@ class SpatialBuilder extends Builder
     public function whitDistance(array $point, array $factor = [1.0]): SpatialBuilder
     {
         return $this->selectRaw("ST_Distance_Sphere(
-                                              Point($point[0], $point[1]), 
-                                              Point(" . $this->pointResolver() . ")
-                                           ) * ? as distance", $factor);
+                                    Point($point[0], $point[1]), 
+                                    Point(" . $this->pointResolver() . ")
+                                 ) * ? as distance", $factor);
     }
 
     /**
