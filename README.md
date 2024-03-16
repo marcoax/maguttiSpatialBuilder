@@ -1,4 +1,4 @@
-# magutti-spatial V3
+# magutti-spatial V4
 Laravel Builder Mysql Spatial Extension
 
 [![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial)
