@@ -1,4 +1,5 @@
 # magutti-spatial V4
+
 Laravel Builder Mysql Spatial Extension
 
 [![Latest Stable Version](http://poser.pugx.org/magutti/magutti-spatial/v)](https://packagist.org/packages/magutti/magutti-spatial)
@@ -6,7 +7,7 @@ Laravel Builder Mysql Spatial Extension
 [![License](http://poser.pugx.org/magutti/magutti-spatial/license)](https://packagist.org/packages/magutti/magutti-spatial)
 [![PHP Version Require](http://poser.pugx.org/magutti/magutti-spatial/require/php)](https://packagist.org/packages/magutti/magutti-spatial)
 
-Laravel Builder extensions to calculate distances between two Spatial points  using Mysql native function `ST_Distance_Sphere`.
+Laravel Builder extensions to calculate distances between two Spatial points using Mysql native function `ST_Distance_Sphere`.
 
 `ST_Distance_Sphere` default unit to find distance is meters.
 
@@ -18,8 +19,17 @@ You can install the package via composer:
 composer require magutti/magutti-spatial
 ```
 
+## Version support
+
+| Package version | Laravel versions      | PHP versions   |
+| --------------- | --------------------- | -------------- |
+| V8.x            | Laravel 10 / 11 / 12  | PHP 8.1+       |
+| V7.x            | Laravel 5 / 6 / 7 / 8 | PHP 7.1+ / 8.0 |
+
 ## Usage
-Add in your  Model
+
+Add in your Model
+
 ```php
 use Magutti\MaguttiSpatial\Builders\SpatialBuilder;
 
@@ -31,7 +41,7 @@ class Location extends Model
         'lng',
         'lat'
     ];
-   
+
     function newEloquentBuilder($query): SpatialBuilder
     {
         return new SpatialBuilder($query);
@@ -41,46 +51,50 @@ class Location extends Model
 ```
 
 ### Example of usage
+
 Get all points where the distance from a given position are less than 1Km
+
 ```php
 Location::select(['id','lng','lat'])
            ->whitDistance([8.9246844, 45.4152695]) // return distance in meters (default)
            ->whereDistance([8.9246844, 45.4152695],1000)
            ->get()
 ```
+
 where **8.9246844** (longitude), **45.4152695** (latitude) is your position and **1000** is the max distance in meters.
 
- 
-
-``` sql
+```sql
 SELECT `id`,
        `lng`,
        `lat`,
        St_distance_sphere(Point(8.9246844, 45.4152695), Point(lng, lat)) * 1 AS
        distance
 FROM   `locations`
-WHERE  St_distance_sphere(Point(8.9246844, 45.4152695), Point(lng, lat)) < 1000 
+WHERE  St_distance_sphere(Point(8.9246844, 45.4152695), Point(lng, lat)) < 1000
 ```
 
 Using Miles
+
 ```php
 Location::select(['id','lat','lng'])
            ->whitDistanceInMiles([8.9246844, 45.4152695]) // return distance in Miles
            ->whereDistance([8.9246844, 45.4152695],10,'mi')
            ->get()
-``` 
+```
 
-Find the closest point to you  in Km 
+Find the closest point to you in Km
+
 ```php
 Location::select(['id','lat','lng'])
-           ->whitDistanceInKm([8.9246844, 45.4152695]) 
+           ->whitDistanceInKm([8.9246844, 45.4152695])
            ->whereDistance([8.9246844, 45.4152695],10,'km')
            ->closest()
-``` 
-
+```
 
 ## Helpers
+
 The package provide some pre-built methods to calculate distance in Km, Miles or Feet.
+
 ```php
 
 whitDistanceInKm(array $point)    -> return distance in Km;
@@ -94,7 +108,8 @@ whereDistanceInMiles(array $point, float $distance)  -> filter point by a given 
 whereDistanceInFeet(array $point, float $distance)   -> filter point by a given distance in Miles
 
 
-``` 
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -109,11 +124,9 @@ If you discover any security related issues, please email marco@magutti.com inst
 
 ## Credits
 
--   [marcoax](https://github.com/magutti)
--   [All Contributors](../../contributors)
+- [marcoax](https://github.com/magutti)
+- [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-
