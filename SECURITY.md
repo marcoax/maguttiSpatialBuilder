@@ -1,12 +1,12 @@
 # Security Policy
 
-This document outlines the security policy for the `MaguttiBuilders` project.
+This document outlines the security policy for the `maguttiSpatialBuilder` project.
 
 ## Reporting a Vulnerability
 
 Security issues should not be reported through public GitHub issues.
 
-If you discover a security vulnerability in `MaguttiBuilders`, please report it privately by emailing the maintainer at [hello@magutti.com](mailto:hello@magutti.com).
+If you discover a security vulnerability in `maguttiSpatialBuilder`, please report it privately by emailing the maintainer at [hello@magutti.com](mailto:hello@magutti.com).
 
 When reporting a vulnerability, please include as much information as possible:
 
