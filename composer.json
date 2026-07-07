@@ -28,6 +28,11 @@
             "Magutti\\MaguttiSpatial\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Magutti\\MaguttiSpatial\\Tests\\": "tests"
+        }
+    },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
