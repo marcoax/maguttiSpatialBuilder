@@ -38,4 +38,25 @@ class SpatialBuilderTest extends TestCase
         $this->assertStringContainsString('as distance', $query->toSql());
         $this->assertSame([0.001], $query->getBindings());
     }
+
+    /**
+     * Characterization test: the coordinates are interpolated straight into the
+     * raw SQL string (Point($point[0], $point[1])), NOT sent as bindings.
+     * This test pins that current behavior so we notice if it ever changes.
+     */
+    public function test_coordinates_are_interpolated_literally_into_the_sql(): void
+    {
+        $query = Place::query()->whereDistance([9.19, 45.46], 1000);
+
+        // The coordinates appear verbatim in the query string...
+        $this->assertStringContainsString('Point(9.19, 45.46)', $query->toSql());
+        // ...and only the distance is a bound parameter (no coords in bindings).
+        $this->assertSame([1000.0], $query->getBindings());
+    }
+
+    public function test_string_coordinates_are_not_escaped_and_leak_into_the_sql(): void
+    {
+        $query = Place::query()->whereDistance(["whre=1", 45.46], 1000);
+        $this->assertStringContainsString('Point(whre=1, 45.46)', $query->toSql());
+    }
 }
