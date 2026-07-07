@@ -56,7 +56,7 @@ class SpatialBuilderTest extends TestCase
 
     public function test_string_coordinates_are_not_escaped_and_leak_into_the_sql(): void
     {
-        $query = Place::query()->whereDistance(["whre=1", 45.46], 1000);
-        $this->assertStringContainsString('Point(whre=1, 45.46)', $query->toSql());
+        $query = Place::query()->whereDistance(["where=1", 45.46], 1000);
+        $this->assertStringContainsString('Point(where=1, 45.46)', $query->toSql());
     }
 }
